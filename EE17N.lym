@@ -19,7 +19,7 @@
 import pya
 from switch import switch
 
-class EE312(pya.Library):
+class EE17N(pya.Library):
 
   def __init__(self):
   
