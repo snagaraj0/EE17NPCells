@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description/>
+ <version/>
+ <category>pymacros</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>true</autorun>
+ <autorun-early>false</autorun-early>
+ <shortcut/>
+ <show-in-menu>false</show-in-menu>
+ <group-name/>
+ <menu-path/>
+ <interpreter>python</interpreter>
+ <dsl-interpreter-name/>
+ <text> # Pcells for EE17N Switches
+
+import pya
+from switch import switch
+
+class EE312(pya.Library):
+
+  def __init__(self):
+  
+    # Set the description
+    self.description = "Switch Design for EE17N"
+    
+    # Create the PCell declarations
+    self.layout().register_pcell("switch", switch())
+
+    # If a library with that name already existed, it will be replaced then.
+    self.register("EE17N")
+
+
+# Instantiate and register the library
+EE17N()
+</text>
+</klayout-macro>
