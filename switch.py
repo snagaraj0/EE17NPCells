@@ -1,3 +1,4 @@
+from email.policy import default
 import pya
 import math
 
@@ -101,8 +102,11 @@ class switch(pya.PCellDeclarationHelper):
         self.param("rprongbeam_center_y", self.TypeDouble, "rprongbeam_center_y")
         self.param("rprongbeam_width", self.TypeDouble, "rprongbeam_width")
         self.param("rprongbeam_length", self.TypeDouble, "rprongbeam_length")
+    def display_text_impl(self):
+        return f'Trans L={self.L} W={self.W}'
+    def coerce_parameters_impl(self):
+        pass
     def produce_impl(self):
-
         #Create pads 
         self.cell.shapes(self.Layer1_layer).insert(pya.Box(center_size_to_points(source_pad_center_x, source_pad_center_y, source_pad_width, source_pad_length)))
         self.cell.shapes(self.Layer1_layer).insert(pya.Box(center_size_to_points(label_center_x, label_center_y, label_width, label_length)))
