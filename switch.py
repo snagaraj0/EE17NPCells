@@ -14,14 +14,15 @@ class switch(pya.PCellDeclarationHelper):
                   for (x, y) in points]
         return pya.Polygon(pya_points)
     def center_size_to_points(self, center_x, center_y, width, length):
-        return (center_x - width / 2, center_y - length / 2,
-            center_x + width / 2, center_y + length / 2)
+        return ( (center_x - width / 2, center_y - length / 2),
+            (center_x + width / 2, center_y + length / 2))
     def display_text_impl(self):
         pass
     def coerce_parameters_impl(self):
         pass
     def produce_impl(self):
-        self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, self.beam_width, self.beam_length)))
+        self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[0],  self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[1]))
+        #self.cell.shapes(self.poly_layer).insert()
         '''
     def display_text_impl(self):
         return f'Trans L={self.L} W={self.W}'
