@@ -21,8 +21,15 @@ class switch(pya.PCellDeclarationHelper):
     def coerce_parameters_impl(self):
         pass
     def produce_impl(self):
-        self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[0], self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[1], 
-        self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[2], self.center_size_to_points(0, 0, self.beam_width, self.beam_length)[3]))
+
+
+        dbu = self.layout.dbu
+        beam_length = self.beam_length / dbu
+        beam_width = self.beam_width / dbu
+        gap_width = self.gap_width / dbu
+
+        self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, beam_width, beam_length)[0], self.center_size_to_points(0, 0, beam_width, beam_length)[1], 
+        self.center_size_to_points(0, 0, beam_width, beam_length)[2], self.center_size_to_points(0, 0, beam_width, beam_length)[3]))
         #self.cell.shapes(self.poly_layer).insert()
         '''
     def display_text_impl(self):
