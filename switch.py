@@ -53,7 +53,7 @@ class switch(pya.PCellDeclarationHelper):
         source_drain_y_val = (beam_length / 2) + (1 / dbu) + (3.25 / dbu)
         sd_prong_height = 4.5 / dbu
         c1 = 2.67 / dbu
-        c2 = 2.25 / dbu
+        c2 = 2.355 / dbu
         #Source Left Prong
         a,b,c,d = self.center_size_to_points( (-0.5 * c1 - 2.5 * c2), source_drain_y_val, c2, sd_prong_height)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
@@ -82,7 +82,5 @@ class switch(pya.PCellDeclarationHelper):
 
         #Drain Pad to Drain
 
-
-
-                self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (-275/dbu, 175/dbu), (-125/dbu, 175/dbu), (source_top_right_x, source_top_right_y), 
-        (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (25 / dbu)) ]))
+        #self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (275/dbu, 175/dbu), (125/dbu, 175/dbu), (source_top_right_x, source_top_right_y), 
+        #(source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (25 / dbu)) ]))
