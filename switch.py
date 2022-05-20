@@ -137,13 +137,13 @@ class switch(pya.PCellDeclarationHelper):
 
 
         #Text Pad
-        disp_str = f'W={self.W:g} L={self.L:g} G={self.G:g}'
+        disp_str = f'W={self.W} L={self.L} G={self.G}'
         text_generator = pya.TextGenerator.default_generator()
-        text = text_generator.text(disp_str, self.layout.dbu, 35)
+        text = text_generator.text(disp_str, self.layout.dbu, 20)
 
         bbox = text.bbox()
         text_len = (bbox.right - bbox.left)
-        text.move(0, 600 / dbu)
+        text.move(-150 / dbu, 600 / dbu)
         self.cell.shapes(self.poly_layer).insert(text)
         
         #self.center_size_to_points(0, 250, 150, 150)
