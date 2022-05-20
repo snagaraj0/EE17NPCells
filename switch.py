@@ -50,7 +50,7 @@ class switch(pya.PCellDeclarationHelper):
         a,b,c,d = self.center_size_to_points(0 + (5.25 / dbu) -  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (2 * dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
 
-        source_drain_y_val = (beam_length / 2) + (beam_width) + 3.25
+        source_drain_y_val = (beam_length / 2) + (1 / dbu) + 3.25
         sd_prong_height = 4.5 / dbu
         c1 = 2.67 / dbu
         c2 = 2.25 / dbu
