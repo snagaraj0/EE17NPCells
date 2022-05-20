@@ -32,17 +32,20 @@ class switch(pya.PCellDeclarationHelper):
         self.center_size_to_points(0, 0, beam_width, beam_length)[2], self.center_size_to_points(0, 0, beam_width, beam_length)[3]))
 
         # Beam base
-        a,b,c,d = self.center_size_to_points(0, 0 - (beam_length / 2) - (5 / (2 * dbu)), 15 / dbu , 7.5 / dbu)
+        a,b,c,d = self.center_size_to_points(0, 0 - (beam_length / 2) - (7.5 / (2 * dbu)), 15 / dbu , 7.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
         # Beam top rectangle 
-        a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (0.667) / (2 * dbu), 10.5 / dbu, 1 / dbu)
+        a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (1) / (2 * dbu), 10.5 / dbu, 1 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
         # Left Gate 
-        a,b,c,d = self.center_size_to_points(0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - 3.5) / dbu)
+        a,b,c,d = self.center_size_to_points(0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - (3.5 / dbu)))
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Right Gate
-        a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - 3.5) / dbu)
+        a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - (3.5 / dbu)))
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
-        
+        #Beam Left Prong
+
+        #Beam Right Prong
+
         #self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points))
         #self.cell.shapes(self.poly_layer).insert()
