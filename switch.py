@@ -127,5 +127,5 @@ class switch(pya.PCellDeclarationHelper):
         lgate_bottom_left_x = lgate_center_x - (9.5 / (2 * dbu))
         lgate_bottom_left_y = lgate_center_y - ((beam_length - (3.5 / dbu)) / 2)
 
-        self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([(lgate_top_left_x, lgate_top_left_y), ( lgate_bottom_left_x , lgate_bottom_left_y), (-275/dbu, -675/dbu), 
-        (-125 / dbu, -675 / dbu), (-275 / dbu, -525 / dbu) ]))
+        self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([(lgate_top_left_x, lgate_top_left_y), ( lgate_bottom_left_x , lgate_bottom_left_y), 
+        (-125 / dbu, -675 / dbu), (-275/dbu, -675/dbu),  (-275 / dbu, -525 / dbu) ]))
