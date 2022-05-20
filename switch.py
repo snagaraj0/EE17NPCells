@@ -38,16 +38,18 @@ class switch(pya.PCellDeclarationHelper):
         a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (1) / (2 * dbu), 10.5 / dbu, 1 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
         # Left Gate 
-        a,b,c,d = self.center_size_to_points(0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu), 2.5/dbu , 9.5 / dbu, (beam_length - (3.5 / dbu)))
+        a,b,c,d = self.center_size_to_points(0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu), 1.25 /dbu , 9.5 / dbu, (beam_length - (3.5 / dbu)))
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Right Gate
-        a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 2.5/dbu, 9.5 / dbu, (beam_length - (3.5 / dbu)))
+        a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 1.25 /dbu, 9.5 / dbu, (beam_length - (3.5 / dbu)))
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Beam Left Prong
         a,b,c,d = self.center_size_to_points(0 - (10.5 / dbu) +  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (2 * dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Beam Right Prong
 
+
+        
         #Source Left Prong
 
         #Source Right Prong
