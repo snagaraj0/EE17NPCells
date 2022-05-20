@@ -9,6 +9,11 @@ class switch(pya.PCellDeclarationHelper):
         self.param("beam_length", self.TypeDouble, "Beam Length", default = 31.5)
         self.param("beam_width", self.TypeDouble, "Beam Width", default = 1)
         self.param("gap_width", self.TypeDouble, "Gap Width", default = 1.25)
+
+        #Text params (indices)
+        self.param("W", self.TypeString, "Beam Width", default = 0)
+        self.param("L", self.TypeString, "Beam Length", default = 0)
+        self.param("G", self.TypeString, "Gap Width", default = 0)
     def tuples_to_polygon(self, points: list):
         pya_points = [pya.Point.from_dpoint(pya.DPoint(x, y))
                   for (x, y) in points]
@@ -131,4 +136,16 @@ class switch(pya.PCellDeclarationHelper):
         (-125 / dbu, -675 / dbu), (-275/dbu, -675/dbu),  (-275 / dbu, -525 / dbu) ]))
 
 
-        #
+        #Text Pad
+        disp_str = f'W={self.W:g} L={self.L:g} G={self.G:g}'
+        text_generator = pya.TextGenerator.default_generator()
+        text = text_generator.text(disp_str, self.layout.dbu, 35)
+
+        bbox = text.bbox()
+        text_len = (bbox.right - bbox.left)
+        text_x = - text_len / 2
+        text_y = 75
+        text.move(text_x, text_y)
+        self.cell.shapes(self.poly_layer).insert(text)
+        
+        #self.center_size_to_points(0, 250, 150, 150)
