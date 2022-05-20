@@ -30,9 +30,9 @@ class switch(pya.PCellDeclarationHelper):
 
         self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, beam_width, beam_length)[0], self.center_size_to_points(0, 0, beam_width, beam_length)[1], 
         self.center_size_to_points(0, 0, beam_width, beam_length)[2], self.center_size_to_points(0, 0, beam_width, beam_length)[3]))
-
         a,b,c,d = self.center_size_to_points(0, 0 - (beam_length / 2) - (5 / (2 * dbu)), 10 / dbu , 5 / dbu)
-        
+        self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
+        a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (0.667) / (2 * dbu), 7 / dbu, 0.667 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
         
         #self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points))
