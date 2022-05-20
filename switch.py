@@ -6,9 +6,9 @@ class switch(pya.PCellDeclarationHelper):
     def __init__(self):
         super(switch, self).__init__()
         self.param("poly", self.TypeLayer, "Polysilicon Layer", default = pya.LayerInfo(1, 0))
-        self.param("beam_length", self.TypeDouble, "Beam Length", default = 21)
-        self.param("beam_width", self.TypeDouble, "Beam Width", default = 0.667)
-        self.param("gap_width", self.TypeDouble, "Gap Width", default = 0.833)
+        self.param("beam_length", self.TypeDouble, "Beam Length", default = 31.5)
+        self.param("beam_width", self.TypeDouble, "Beam Width", default = 1)
+        self.param("gap_width", self.TypeDouble, "Gap Width", default = 1.25)
     def tuples_to_polygon(self, points: list):
         pya_points = [pya.Point.from_dpoint(pya.DPoint(x, y))
                   for (x, y) in points]
@@ -30,10 +30,19 @@ class switch(pya.PCellDeclarationHelper):
 
         self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points(0, 0, beam_width, beam_length)[0], self.center_size_to_points(0, 0, beam_width, beam_length)[1], 
         self.center_size_to_points(0, 0, beam_width, beam_length)[2], self.center_size_to_points(0, 0, beam_width, beam_length)[3]))
-        a,b,c,d = self.center_size_to_points(0, 0 - (beam_length / 2) - (5 / (2 * dbu)), 10 / dbu , 5 / dbu)
+
+        # Beam base
+        a,b,c,d = self.center_size_to_points(0, 0 - (beam_length / 2) - (5 / (2 * dbu)), 15 / dbu , 7.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
-        a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (0.667) / (2 * dbu), 7 / dbu, 0.667 / dbu)
+        # Beam top rectangle 
+        a,b,c,d = self.center_size_to_points(0, 0 + (beam_length / 2) + (0.667) / (2 * dbu), 10.5 / dbu, 1 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a, b, c,d ))
+        # Left Gate 
+        a,b,c,d = self.center_size_to_points(0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - 3.5) / dbu)
+        self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
+        #Right Gate
+        a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 0, 9.5 / dbu, (beam_length - 3.5) / dbu)
+        self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         
         #self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points))
         #self.cell.shapes(self.poly_layer).insert()
