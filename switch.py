@@ -69,13 +69,20 @@ class switch(pya.PCellDeclarationHelper):
 
         #Source Pad to Source
         source_center_x = -1 * (5.25 / dbu) + (1 / (2 * dbu))
-        source_center_y = (beam_length / 2) + (1/ dbu) + (5.5 / dbu) + (10 / 2 * dbu)
+        source_center_y = (beam_length / 2) + (1/ dbu) + (5.5 / dbu) + (10/dbu)
         
-        source_top_right_x = source_center_x + (7.34 / (2 * dbu))
-        source_top_right_y = source_center_y + (10 / (2 * dbu))
-        source_bottom_right_x = source_center_x + (7.34 / (2 * dbu))
-        source_bottom_right_y = source_center_y - (10 / (2 * dbu))
-        source_bottom_left_x = source_center_x - (7.34 / (2 * dbu))
-        source_bottom_left_y = source_center_y - (10 / (2 * dbu))
+        source_top_right_x = source_center_x + (7.25 / (2 * dbu))
+        source_top_right_y = source_center_y + (10 / dbu)
+        source_bottom_right_x = source_center_x + (7.25 / (2 * dbu))
+        source_bottom_right_y = source_center_y - (10 / (dbu))
+        source_bottom_left_x = source_center_x - (7.25 / (2 * dbu))
+        source_bottom_left_y = source_center_y - (10 / (dbu))
         self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (-275/dbu, 175/dbu), (-125/dbu, 175/dbu), (source_top_right_x, source_top_right_y), 
+        (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (25 / dbu)) ]))
+
+        #Drain Pad to Drain
+
+
+
+                self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (-275/dbu, 175/dbu), (-125/dbu, 175/dbu), (source_top_right_x, source_top_right_y), 
         (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (25 / dbu)) ]))
