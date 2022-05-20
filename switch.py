@@ -143,7 +143,7 @@ class switch(pya.PCellDeclarationHelper):
 
         bbox = text.bbox()
         text_len = (bbox.right - bbox.left)
-        text.move(-75 / dbu, 600 / dbu)
+        text.move(-90 / dbu, 600 / dbu)
         self.cell.shapes(self.poly_layer).insert(text)
         
         #self.center_size_to_points(0, 250, 150, 150)
