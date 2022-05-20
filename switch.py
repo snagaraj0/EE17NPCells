@@ -116,7 +116,7 @@ class switch(pya.PCellDeclarationHelper):
 
 
         self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([(rgate_top_right_x, rgate_top_right_y), ( (275 / dbu) , (-525 / dbu)), (275/dbu, -675/dbu), 
-        (125 / dbu, -675 / dbu), (rgate_bottom_right_x, rgate_bottom_right_y) ]))
+        (125 / dbu, -675 / dbu), (125 / dbu, -525 / dbu), (rgate_bottom_right_x, rgate_bottom_right_y) ]))
 
         #Left Gate Pad to Left Gate
         lgate_center_x = 0 - (beam_width / 2) - gap_width - 9.5 / (2 * dbu)
@@ -127,5 +127,8 @@ class switch(pya.PCellDeclarationHelper):
         lgate_bottom_left_x = lgate_center_x - (9.5 / (2 * dbu))
         lgate_bottom_left_y = lgate_center_y - ((beam_length - (3.5 / dbu)) / 2)
 
-        self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([(lgate_top_left_x, lgate_top_left_y), ( lgate_bottom_left_x , lgate_bottom_left_y), 
+        self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([(lgate_top_left_x, lgate_top_left_y), ( lgate_bottom_left_x , lgate_bottom_left_y), (-125 / dbu, -525 / dbu),
         (-125 / dbu, -675 / dbu), (-275/dbu, -675/dbu),  (-275 / dbu, -525 / dbu) ]))
+
+
+        #
