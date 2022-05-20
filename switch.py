@@ -52,7 +52,7 @@ class switch(pya.PCellDeclarationHelper):
 
         source_drain_y_val = (beam_length / 2) + (1 / dbu) + (3.25 / dbu)
         sd_prong_height = 4.5 / dbu
-        c1 = 2.67 / dbu
+        c1 = 2.16 / dbu
         c2 = 2.355 / dbu
         #Source Left Prong
         a,b,c,d = self.center_size_to_points( (-0.5 * c1 - 2.5 * c2), source_drain_y_val, c2, sd_prong_height)
@@ -71,11 +71,11 @@ class switch(pya.PCellDeclarationHelper):
         source_center_x = -1 * (5.25 / dbu) + (1 / (2 * dbu))
         source_center_y = (beam_length / 2) + (1/ dbu) + (5.5 / dbu) + (10/dbu)
         
-        source_top_right_x = source_center_x + (7.25 / (2 * dbu))
+        source_top_right_x = source_center_x + (7.34 / (2 * dbu))
         source_top_right_y = source_center_y + (10 / dbu)
-        source_bottom_right_x = source_center_x + (7.25 / (2 * dbu))
+        source_bottom_right_x = source_center_x + (7.34 / (2 * dbu))
         source_bottom_right_y = source_center_y - (10 / (dbu))
-        source_bottom_left_x = source_center_x - (7.25 / (2 * dbu))
+        source_bottom_left_x = source_center_x - (7.34 / (2 * dbu))
         source_bottom_left_y = source_center_y - (10 / (dbu))
         self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (-275/dbu, 175/dbu), (-125/dbu, 175/dbu), (source_top_right_x, source_top_right_y), 
         (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (25 / dbu)) ]))
