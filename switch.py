@@ -82,14 +82,14 @@ class switch(pya.PCellDeclarationHelper):
         (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (525 / dbu)) ]))
 
         #Drain Pad to Drain
-        drain_center_x = (5.25 / dbu) + (1 / (2 * dbu))
+        drain_center_x = (5.25 / dbu) - (1 / (2 * dbu))
         drain_center_y = (beam_length / 2) + (1/ dbu) + (5.5 / dbu) + (10/dbu)
 
-        drain_top_right_x = drain_center_x + (7.335 / (2 * dbu))
-        drain_top_right_y = drain_center_y +  (10 / dbu)
+        drain_top_left_x = drain_center_x - (7.335 / (2 * dbu))
+        drain_top_left_y = drain_center_y +  (10 / dbu)
         drain_bottom_right_x = drain_center_x + (7.335 / (2 * dbu))
         drain_bottom_right_y = drain_center_y - (10 / (dbu))
         drain_bottom_left_x = drain_center_x - (7.335 / (2 * dbu))
         drain_bottom_left_y = drain_center_y - (10 / (dbu))
         self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (125/dbu, 675/dbu), (275/dbu, 675/dbu), ( (275 / dbu) , (525 / dbu)), (drain_bottom_right_x, drain_bottom_right_y), 
-        (drain_bottom_left_x, drain_bottom_left_y), (drain_top_right_x, drain_top_right_y) ]))
+        (drain_bottom_left_x, drain_bottom_left_y), (drain_top_left_x, drain_top_left_y) ]))
