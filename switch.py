@@ -44,13 +44,13 @@ class switch(pya.PCellDeclarationHelper):
         a,b,c,d = self.center_size_to_points(0 + (beam_width / 2) + gap_width + 9.5 / (2 * dbu), 0.75 /dbu, 9.5 / dbu, (beam_length - (3.5 / dbu)))
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Beam Left Prong
-        a,b,c,d = self.center_size_to_points(0 - (5.25 / dbu) +  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (2 * dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
+        a,b,c,d = self.center_size_to_points(0 - (5.25 / dbu) +  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Beam Right Prong
-        a,b,c,d = self.center_size_to_points(0 + (5.25 / dbu) -  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (2 * dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
+        a,b,c,d = self.center_size_to_points(0 + (5.25 / dbu) -  (1 / (2 * dbu)), 0 + (beam_length / 2) + (1) / (dbu) + (2.5) / (2 * dbu), 1/ dbu, 2.5 / dbu)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
 
-        source_drain_y_val = (beam_length / 2) + (1 / dbu) + 3.25
+        source_drain_y_val = (beam_length / 2) + (1 / dbu) + (3.25 / dbu)
         sd_prong_height = 4.5 / dbu
         c1 = 2.67 / dbu
         c2 = 2.25 / dbu
@@ -66,6 +66,3 @@ class switch(pya.PCellDeclarationHelper):
         #Drain Right Prong
         a,b,c,d = self.center_size_to_points( (0.5 * c1 + 2.5 * c2), source_drain_y_val, c2, sd_prong_height)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
-
-        #self.cell.shapes(self.poly_layer).insert(pya.Box(self.center_size_to_points))
-        #self.cell.shapes(self.poly_layer).insert()
