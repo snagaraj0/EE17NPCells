@@ -54,8 +54,9 @@ class switch(pya.PCellDeclarationHelper):
         sd_prong_height = 4.5 / dbu
         c1 = 2.16 / dbu
         c2 = 2.355 / dbu
+        c3 = 2.625 / dbu
         #Source Left Prong
-        a,b,c,d = self.center_size_to_points( (-0.5 * c1 - 2.5 * c2), source_drain_y_val, c2, sd_prong_height)
+        a,b,c,d = self.center_size_to_points( (-0.5 * c1 - 1.5 * c2 - c3), source_drain_y_val, c2, sd_prong_height)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Source Right Prong
         a,b,c,d = self.center_size_to_points( (-0.5 * c1 - 0.5 * c2), source_drain_y_val, c2, sd_prong_height)
@@ -64,7 +65,7 @@ class switch(pya.PCellDeclarationHelper):
         a,b,c,d = self.center_size_to_points( (0.5 * c1 + 0.5 * c2), source_drain_y_val, c2 , sd_prong_height)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
         #Drain Right Prong
-        a,b,c,d = self.center_size_to_points( (0.5 * c1 + 2.5 * c2), source_drain_y_val, c2, sd_prong_height)
+        a,b,c,d = self.center_size_to_points( (0.5 * c1 + 1.5 * c2 + c3), source_drain_y_val, c2, sd_prong_height)
         self.cell.shapes(self.poly_layer).insert(pya.Box(a,b,c,d))
 
         #Source Pad to Source
