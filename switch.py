@@ -92,4 +92,4 @@ class switch(pya.PCellDeclarationHelper):
         drain_bottom_left_x = drain_center_x - (7.335 / (2 * dbu))
         drain_bottom_left_y = drain_center_y - (10 / (dbu))
         self.cell.shapes(self.poly_layer).insert(self.tuples_to_polygon([ (275/dbu, 675/dbu), (125/dbu, 675/dbu), (drain_top_right_x, drain_top_right_y), 
-        (drain_bottom_right_x, drain_bottom_right_y), (drain_bottom_left_x, drain_bottom_left_y), ( (-275 / dbu) , (525 / dbu)) ]))
+        (drain_bottom_right_x, drain_bottom_right_y), (drain_bottom_left_x, drain_bottom_left_y), ( (275 / dbu) , (525 / dbu)) ]))
