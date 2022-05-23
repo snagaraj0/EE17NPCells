@@ -6,6 +6,7 @@ class switch(pya.PCellDeclarationHelper):
     def __init__(self):
         super(switch, self).__init__()
         self.param("poly", self.TypeLayer, "Polysilicon Layer", default = pya.LayerInfo(1, 0))
+        self.param("platinum", self.TypeLayer, "Platinum Etch LAyer", default = pya.LayerInfo(2,0))
         self.param("beam_length", self.TypeDouble, "Beam Length", default = 31.5)
         self.param("beam_width", self.TypeDouble, "Beam Width", default = 1)
         self.param("gap_width", self.TypeDouble, "Gap Width", default = 1.25)
@@ -26,7 +27,7 @@ class switch(pya.PCellDeclarationHelper):
     def coerce_parameters_impl(self):
         pass
     def produce_impl(self):
-
+        #Mask 1
         dbu = self.layout.dbu
 
         beam_width = self.beam_width / dbu
@@ -146,4 +147,19 @@ class switch(pya.PCellDeclarationHelper):
         text.move(-100 / dbu, 700 / dbu)
         self.cell.shapes(self.poly_layer).insert(text)
         
-        #self.center_size_to_points(0, 250, 150, 150)
+        #Mask 2
+
+        self.cell.shapes(self.platinum_layer).insert(self.tuples_to_polygon([ (-275/dbu, 675/dbu), (-125/dbu, 675/dbu), (source_top_right_x, source_top_right_y), 
+        (source_bottom_right_x, source_bottom_right_y), (source_bottom_left_x, source_bottom_left_y), ( (-275 / dbu) , (525 / dbu)) ]))
+        
+        self.cell.shapes(self.platinum_layer).insert(self.tuples_to_polygon([ (125/dbu, 675/dbu), (275/dbu, 675/dbu), ( (275 / dbu) , (525 / dbu)), (drain_bottom_right_x, drain_bottom_right_y), 
+        (drain_bottom_left_x, drain_bottom_left_y), (drain_top_left_x, drain_top_left_y) ]))
+
+        self.cell.shapes(self.platinum_layer).insert(self.tuples_to_polygon([ (beam_bottom_right_x, beam_bottom_right_y), (75/dbu, -525/dbu), ( (75 / dbu) , (-675 / dbu)), (-75 / dbu, -675 / dbu), 
+        (-75 / dbu, -525 / dbu), (beam_bottom_left_x, beam_bottom_left_y)]))
+
+        self.cell.shapes(self.platinum_layer).insert(self.tuples_to_polygon([(rgate_top_right_x, rgate_top_right_y), ( (275 / dbu) , (-525 / dbu)), (275/dbu, -675/dbu), 
+        (125 / dbu, -675 / dbu), (125 / dbu, -525 / dbu), (rgate_bottom_right_x, rgate_bottom_right_y) ]))
+
+        self.cell.shapes(self.platinum_layer).insert(self.tuples_to_polygon([(lgate_top_left_x, lgate_top_left_y), ( lgate_bottom_left_x , lgate_bottom_left_y), (-125 / dbu, -525 / dbu),
+        (-125 / dbu, -675 / dbu), (-275/dbu, -675/dbu),  (-275 / dbu, -525 / dbu)]))
